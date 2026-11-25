@@ -168,7 +168,7 @@ def main():
            "-r", str(FPS), "-i", "-", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
            "-vf", "noise=alls=5:allf=t,eq=contrast=1.04:saturation=1.05",
            "-map", "0:v", "-map", "1:a", "-shortest",
-           "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p",
+           "-c:v", "libx264", "-b:v", "4500k", "-maxrate", "6000k", "-bufsize", "9000k", "-profile:v", "main", "-preset", "slow", "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-movflags", "+faststart", str(out)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     t_glob = 0.0

@@ -46,7 +46,7 @@ def main():
     cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
            "-r", str(FPS), "-i", "-", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
            "-vf", "noise=alls=4:allf=t", "-map", "0:v", "-map", "1:a", "-shortest",
-           "-c:v", "libx264", "-crf", "17", "-preset", "medium", "-pix_fmt", "yuv420p",
+           "-c:v", "libx264", "-b:v", "4500k", "-maxrate", "6000k", "-bufsize", "9000k", "-profile:v", "main", "-preset", "slow", "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-movflags", "+faststart", str(out)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     n = int(DUR * FPS)
