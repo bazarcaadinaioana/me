@@ -258,7 +258,7 @@ class FotoMobile:
         else:
             scala = max(w * margine / img.width, h * margine / img.height)
             self.img = img.resize((math.ceil(img.width * scala), math.ceil(img.height * scala)), Image.LANCZOS)
-        self.fy = {"alto": 0.3, "basso": 0.7}.get(fuoco, 0.5)
+        self.fy = fuoco if isinstance(fuoco, (int, float)) else {"alto": 0.3, "basso": 0.7}.get(fuoco, 0.5)
 
     def frame(self, p):
         bw, bh = self.img.size
@@ -395,7 +395,7 @@ class Scena:
         dim_tit = dati.get("dimensione", 92) * U
         parti = []
         if sopra:
-            parti.append(blocco_testo(sopra, stile["font_corsivo"], dim_tit * 0.5, col_testo, max_w, ombra=ombra))
+            parti.append(blocco_testo(sopra, stile["font_corsivo"], dati.get("dimensione_sopratitolo", min(dim_tit * 0.5, 50)) * (U if "dimensione_sopratitolo" in dati else 1), col_testo, max_w, ombra=ombra))
         if titolo:
             parti.append(blocco_testo(titolo, stile["font_titolo"], dim_tit, col_testo, max_w, ombra=ombra,
                                       interlinea=dati.get("interlinea", 1.12)))
