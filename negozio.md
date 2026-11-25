@@ -42,7 +42,7 @@ Usa i prezzi nei contenuti solo se la richiesta lo prevede.
 - Altrimenti video **nel negozio** con **voce fuori campo** (voce ElevenLabs scelta: "Daniela - Giovane ed elegante", voice_id `kavPiGHUq62Aokyp5Tui`).
 
 ## Dati di vendita
-Il gestionale è vecchio e non esporta i dati. L'analista lavora con: note della titolare, statistiche social, conteggi semplici
+Il gestionale è vecchio e non esporta i dati. Irina lavora con: note della titolare, statistiche social, conteggi semplici
 (es. scontrini al giorno scritti a mano in `dati/note.md`). Proponi metodi semplici per raccogliere dati.
 
 ## Promozioni attive

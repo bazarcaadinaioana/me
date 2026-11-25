@@ -1,4 +1,4 @@
-<!-- File di esempio: il coordinatore lo ignora perché inizia con ESEMPIO. Copialo con un nuovo nome. -->
+<!-- File di esempio: Luna lo ignora perché inizia con ESEMPIO. Copialo con un nuovo nome. -->
 
 # Richiesta: lancio nuovi cappotti
 
