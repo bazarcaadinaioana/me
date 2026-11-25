@@ -86,37 +86,65 @@ def slide1():
 
 
 # ---------------------------------------------------------------- 2 la selezione
+def denim(w, h):
+    """Tessuto denim blu disegnato (trama diagonale, cuciture arancio)."""
+    import random
+    random.seed(4)
+    im = Image.new("RGB", (w, h), (52, 86, 128))
+    d = ImageDraw.Draw(im)
+    for k in range(-h, w, 5):
+        c = random.randint(-14, 14)
+        d.line([(k, h), (k + h, 0)], fill=(52 + c, 86 + c, 128 + c), width=2)
+    for _ in range(w * h // 40):
+        x, y = random.randrange(w), random.randrange(h)
+        v = random.randint(150, 205)
+        im.putpixel((x, y), (v - 40, v - 20, v))
+    im = im.filter(ImageFilter.GaussianBlur(0.6))
+    d = ImageDraw.Draw(im)
+    for off in (22, 34):  # doppia cucitura
+        for x in range(off, w - off, 22):
+            d.line([(x, off), (x + 12, off)], fill=(214, 140, 60), width=3)
+            d.line([(x, h - off), (x + 12, h - off)], fill=(214, 140, 60), width=3)
+    return im.convert("RGBA")
+
+
+def cella_capo(p, nome, cw, ch):
+    cella = Image.new("RGBA", (cw, ch), g.colore("#F4F2EF"))
+    ph = foto(p, cw - 30, ch - 70, sfondo_bianco=True).copy()
+    px = ph.load()
+    for yy in range(ph.height):
+        for xx in range(ph.width):
+            r, gg, b, a = px[xx, yy]
+            if min(r, gg, b) > 205 and max(r, gg, b) - min(r, gg, b) < 14:
+                px[xx, yy] = (244, 242, 239, 255)
+    cella.alpha_composite(ph, (15, 12))
+    et = testo(nome.upper(), "font_forte", 24, sp=4)
+    cella.alpha_composite(et, ((cw - et.width) // 2, ch - 52))
+    return arrotonda(cella, 14)
+
+
 def slide2():
     img = base()
     y = IN + 30
     y = centra(img, testo("la nostra selezione", "font_corsivo", 54), y)
-    y = centra(img, testo("-20% su tutto", "font_titolo", 96), y) + 26
-    capi = [("foto/prodotti/nhebyna-piumino-nero-pelliccia.png", "Piumino"),
-            ("foto/prodotti/nhebyna-maglione-rombi-marrone.png", "Maglieria"),
-            ("foto/prodotti/nhebyna-pantalone-velluto-verde.png", "Pantaloni"),
-            ("foto/outfit/borsa-vernice-moro-ritaglio.jpg", "Borse")]
+    y = centra(img, testo("Black Friday", "font_titolo", 96), y) + 26
     gap = 18
     cw = (W - 2 * IN - 40 - gap) // 2
-    ch = (H - y - IN - 40 - gap) // 2
-    for i, (p, nome) in enumerate(capi):
-        cx = IN + 20 + (i % 2) * (cw + gap)
-        cy = y + (i // 2) * (ch + gap)
-        cella = Image.new("RGBA", (cw, ch), g.colore("#F4F2EF"))
-        ph = foto(p, cw - 30, ch - 70, sfondo_bianco=True)
-        ph = ph.copy()
-        # rende il fondo bianco della foto uguale alla cella
-        px = ph.load()
-        for yy in range(ph.height):
-            for xx in range(ph.width):
-                r, gg, b, a = px[xx, yy]
-                if min(r, gg, b) > 205 and max(r, gg, b) - min(r, gg, b) < 14:
-                    px[xx, yy] = (244, 242, 239, 255)
-        cella.alpha_composite(ph, (15, 12))
-        et = testo(nome.upper(), "font_forte", 24, sp=4)
-        cella.alpha_composite(et, ((cw - et.width) // 2, ch - 52))
-        img.alpha_composite(arrotonda(cella, 14), (cx, cy))
+    ch = int((H - y - IN - 40 - gap) * 0.56)
+    for i, (p, nome) in enumerate([("foto/prodotti/nhebyna-piumino-nero-pelliccia.png", "Piumini"),
+                                   ("foto/prodotti/nhebyna-maglione-rombi-marrone.png", "Maglieria")]):
+        cx = IN + 20 + i * (cw + gap)
+        img.alpha_composite(cella_capo(p, nome, cw, ch), (cx, y))
         b = bollino("-20%", 26)
-        img.alpha_composite(b, (cx + cw - b.width - 12, cy + 12))
+        img.alpha_composite(b, (cx + cw - b.width - 12, y + 12))
+    y2 = y + ch + gap
+    jw, jh = W - 2 * IN - 40, H - y2 - IN - 30
+    tess = denim(jw, jh)
+    t = testo("JEANS", "font_titolo", 150, col=BIANCO, sp=10)
+    tess.alpha_composite(t, ((jw - t.width) // 2, (jh - t.height) // 2 - 22))
+    b = g.pillola("-30%", ST["font_forte"], 44, BIANCO, g.colore("#24456E"), spaziatura=2)
+    tess.alpha_composite(b, ((jw - b.width) // 2, (jh + t.height) // 2 - 10))
+    img.alpha_composite(arrotonda(tess, 14), (IN + 20, y2))
     chiudi(img, "2-selezione")
 
 
@@ -136,8 +164,8 @@ def slide3():
     y = IN + 24 + ph.height + 24
     y = centra(img, testo("e fino al", "font_corsivo", 64), y - 6)
     y = centra(img, testo("-30%", "font_titolo", 190), y - 30)
-    y = centra(img, testo("SU UNA SELEZIONE DI CAPI, ANCHE JEANS", "font_forte", 26, sp=3), y - 4) + 16
-    b = g.pillola("cerca il fiocco rosso sulla gruccia", ST["font_corsivo"], 34, ROSSO, BIANCO)
+    y = centra(img, testo("SU UNA SELEZIONE DI CAPI", "font_forte", 28, sp=4), y - 4) + 16
+    b = g.pillola("Cerca gli abiti con il fiocco rosso", ST["font_corsivo"], 36, ROSSO, BIANCO)
     bx = (W - b.width) // 2
     img.alpha_composite(b, (bx, y))
     fiocco(ImageDraw.Draw(img), W - IN - 80, IN + 70, 34, ROSSO)
@@ -160,4 +188,4 @@ def slide4():
 
 
 if __name__ == "__main__":
-    slide1(); slide2(); slide3(); slide4()
+    slide2(); slide3(); slide4()
