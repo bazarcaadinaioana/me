@@ -1,0 +1,12 @@
+{
+  "formato": "reel",
+  "marchio": "Nome negozio",
+  "musica": "",
+  "scene": [
+    {"tipo": "foto", "foto": "foto/cappotto.jpg", "effetto": "zoom-in", "fuoco": "alto",
+     "etichetta": "Novità", "testo": "Il cappotto che cercavi", "sottotesto": "Lana · color cammello", "durata": 3.2},
+    {"tipo": "pannello", "foto": "foto/vetrina.jpg", "effetto": "pan-destra",
+     "testo": "Colori caldi per l'inverno", "sottotesto": "Nuovi arrivi in negozio", "durata": 3},
+    {"tipo": "testo", "testo": "Ti aspettiamo in negozio", "sottotesto": "Via ... · orari", "durata": 3}
+  ]
+}

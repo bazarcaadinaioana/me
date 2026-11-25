@@ -18,8 +18,8 @@ Lavora sempre in **italiano**.
 | `stratega` | Piano editoriale: cosa pubblicare, dove, quando, perché |
 | `copywriter` | Caption, hook, testi per reel/storie, hashtag, call to action |
 | `visual-designer` | Brief visivi: cosa scattare, inquadrature, stile, scaletta reel |
-| `fotografo` | Crea le immagini: generazione AI, grafiche, scontorno foto prodotti (Canva / ElevenLabs) |
-| `videomaker` | Crea i video: storyboard completi e generazione con Canva dopo approvazione |
+| `fotografo` | Crea le immagini: grafiche con il generatore interno, AI (Canva / ElevenLabs), scontorno |
+| `videomaker` | Crea i video con il generatore interno `studio/genera.py`; video AI Canva dopo approvazione |
 | `revisore` | Controllo qualità finale: tono, errori, coerenza, niente promesse inventate |
 
 ## Cartelle
@@ -43,9 +43,10 @@ Lavora sempre in **italiano**.
   nuovi, dillo e fai solo la parte su tendenze e social.
 
 ## Limiti e regole
-- **Video:** generare un video con Canva richiede l'approvazione esplicita della titolare in chat.
+- **Foto e video del generatore interno** (`studio/genera.py`): liberi, anche nei giri automatici.
+- **Video AI:** generare un video con Canva richiede l'approvazione esplicita della titolare in chat.
   Nei giri automatici prepara solo le schede video complete e segnalale come "🎬 Video pronti da approvare".
-- **Immagini:** massimo 3 immagini generate per giro automatico (consumano crediti).
+- **Immagini AI:** massimo 3 immagini generate con l'AI per giro automatico (consumano crediti).
 - I capi reali si mostrano partendo da foto vere; l'AI non deve cambiarli né inventarli.
 - Niente prezzi, sconti, disponibilità o numeri che non siano in `negozio.md`, nelle richieste o in `dati/`.
 - Gli agenti non pubblicano nulla sui social e non contattano clienti: preparano, la titolare approva.
