@@ -285,6 +285,29 @@ class FotoMobile:
                                   Image.BILINEAR).convert("RGBA")
 
 
+class ClipVideo:
+    """Una clip video (es. una signora animata) usata come sfondo di una scena; letta in streaming."""
+
+    def __init__(self, percorso, w, h, inizio=0.0, velocita=1.0):
+        self.w, self.h, self.vel = w, h, velocita
+        self.cmd = ["ffmpeg", "-loglevel", "error", "-ss", str(inizio), "-i", str(percorso), "-vf",
+                    f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps={FPS}",
+                    "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+        self.proc, self.n, self.ultimo = None, -1, None
+
+    def frame(self, t):
+        if self.proc is None:
+            self.proc = subprocess.Popen(self.cmd, stdout=subprocess.PIPE)
+        voluto = int(t * self.vel * FPS)
+        while self.n < voluto:
+            raw = self.proc.stdout.read(self.w * self.h * 3)
+            if len(raw) < self.w * self.h * 3:
+                break  # clip finita: resta sull'ultimo fotogramma
+            self.ultimo = Image.frombytes("RGB", (self.w, self.h), raw)
+            self.n += 1
+        return self.ultimo.convert("RGBA")
+
+
 # ---------------------------------------------------------------- scene
 
 class Elemento:
@@ -333,11 +356,16 @@ class Scena:
         marchio = dati.get("marchio", "")
         posizione = dati.get("posizione", "basso")
 
-        if self.tipo == "foto":
-            self.foto = FotoMobile(trova_file(dati["foto"], base), W, H, effetto, dati.get("fuoco", "centro"))
+        if self.tipo == "clip":
+            self.foto = ClipVideo(trova_file(dati["clip"], base), W, H, dati.get("inizio", 0), dati.get("velocita", 1.0))
+            self.tipo_sfondo = "foto"
+        if self.tipo in ("foto", "clip"):
+            if self.tipo == "foto":
+                self.foto = FotoMobile(trova_file(dati["foto"], base), W, H, effetto, dati.get("fuoco", "centro"))
             if titolo or sotto or nota:
                 self.sfondo = sfumatura(W, H, alto=(posizione == "alto"))
             su_foto, col = True, colore(stile["chiaro"])
+            self.tipo = "foto" if self.tipo == "clip" else self.tipo
         elif self.tipo == "pannello":
             hf = int(H * dati.get("altezza_foto", 0.62))
             self.foto = FotoMobile(trova_file(dati["foto"], base), W, hf, effetto, dati.get("fuoco", "centro"))
@@ -427,7 +455,7 @@ class Scena:
     def frame(self, t):
         p = ease_in_out(t / self.durata) if self.durata else 0
         if self.tipo == "foto":
-            fr = self.foto.frame(p)
+            fr = self.foto.frame(t if isinstance(self.foto, ClipVideo) else p)
             if self.sfondo:
                 fr.alpha_composite(self.sfondo)
         else:
