@@ -1,0 +1,12 @@
+{
+  "formato": "reel",
+  "logo": true,
+  "scene": [
+    {"tipo": "clip", "clip": "clip/30-cammina.mp4", "logo": false, "posizione": "basso",
+     "sopratitolo": "da Pakima", "testo": "Nuova collezione", "dimensione": 100, "durata": 3.6},
+    {"tipo": "clip", "clip": "clip/40-gira.mp4", "logo": false, "posizione": "basso",
+     "testo": "Autunno · Inverno", "dimensione": 90, "durata": 2.4},
+    {"tipo": "testo", "sopratitolo": "vieni a trovarci", "testo": "Ti aspettiamo", "dimensione": 110,
+     "sottotesto": "Via Cavour 7 · Vimercate", "durata": 3.4}
+  ]
+}
