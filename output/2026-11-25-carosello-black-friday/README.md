@@ -1,10 +1,9 @@
 # Carosello Black Friday — da pubblicare oggi 25/11
 
-Pubblica le 4 immagini **in quest'ordine** come carosello Instagram (formato 4:5):
-1. `1-black-friday.png` — Il Black Friday di Pakima: -20% su tutto l'abbigliamento, fino al -30% su una selezione
+Pubblica le 3 immagini **in quest'ordine** come carosello Instagram (formato 4:5):
+1. `1-black-friday.png` — (in rifacimento: solo i vestiti, senza manichini) Il Black Friday di Pakima: -20% su tutto l'abbigliamento, fino al -30% su una selezione
 2. `2-regalo.png` — Un regalo speciale, con il 20% di sconto
 3. `3-domenica.png` — Domenica 29 novembre siamo aperti
-4. `4-vi-aspettiamo.png` — Vi aspettiamo, Via Cavour 7
 
 ## Didascalia
 > Il Black Friday è arrivato da Pakima ✨
