@@ -34,7 +34,8 @@ Usa i prezzi nei contenuti solo se la richiesta lo prevede.
 - **TikTok:** @pakima.moda — 137 follower, 18 video, 1.136 like (rilevato il 25/11/2026)
 - **Obiettivo:** far diventare Pakima un **brand riconosciuto, con la sua impronta**. Servono contenuti per **entrambe** le piattaforme.
 - **Tono di voce:** **elegante**. Tu o Lei a seconda del contesto (sui social di solito il "tu", caldo ma raffinato). Poche emoji, sobrie.
-- **Hashtag fissi:** #pakima #pakimamoda #vimercate #modadonna
+- **Bio Instagram (scelta 25/11/2026):** nome «Pakima · Moda donna Vimercate» · «Il tuo look, scelto insieme a te ✨ / Moda donna 38–52 · consulenza su misura / 📍 Via Cavour 7, Vimercate / Scrivici, ti teniamo il capo da parte ↓» · link: WhatsApp (numero da ricevere)
+- **Hashtag fissi:** #pakima #pakimamoda #vimercate #modadonna (max 3–5 hashtag per post)
 - **Stile visivo:** bianco e nero, elegante (come il logo e le grafiche del Black Friday in `foto/grafiche-esistenti/`); i colori arrivano dai capi.
 
 ## Video
