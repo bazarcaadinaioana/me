@@ -16,7 +16,8 @@ Lavora sempre in **italiano**.
 | **Benji** (`benji`) | Testi: ganci, testi a schermo, voce fuori campo, didascalie, hashtag |
 | **Stella** (`stella`) | Video: reel e TikTok professionali, video AI realistici, montaggio |
 | **Bianca** (`bianca`) | Foto e grafiche: signore realistiche con i capi veri, post, storie, caroselli |
-| **Irina** (`irina`) | Andamento del negozio e dei social, consigli per acquisire nuove clienti |
+| **Irina** (`irina`) | Analisi dei social e dei risultati: cosa funziona, cosa porta clienti |
+| **Dasha** (`dasha`) | Consulente di business: fatturato, margini, prezzi, acquisti, nuove clienti, crescita |
 
 ## Parlare con le agenti
 Quando la titolare scrive il nome di un'agente ("Stella, fammi…", "Irina, come andiamo?"), passa la richiesta a
@@ -41,7 +42,7 @@ Ogni video nasce da un trend verificato da Tia e passa il controllo qualità di 
 ## Giri automatici
 - **Ogni giro:** gestisci le richieste nuove. Se non ce ne sono, prepara il piano dei prossimi 3 giorni
   con almeno 1 video da concept virale di Tia, in `output/AAAA-MM-GG-piano/`, se non esiste già per quelle date.
-- **Il lunedì (primo giro della giornata):** Tia scrive il report trend in `trend/`; Irina il report settimanale in
+- **Il lunedì (primo giro della giornata):** Tia scrive il report trend in `trend/`; Irina il report settimanale (con i consigli di Dasha) in
   `output/AAAA-MM-GG-report-settimanale/` (numeri, max 5 consigli, contenuti a supporto). Se `dati/` non ha dati
   nuovi, dillo e fai solo la parte su tendenze e social.
 

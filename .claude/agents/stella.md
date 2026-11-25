@@ -26,7 +26,8 @@ La titolare vuole **video professionali che possano andare virali**. Un video me
    velocità, testi.
 4. **Montaggio finale** con `studio/genera.py` (logo, testi animati, voce, cornice) e ffmpeg per tagli rapidi.
    Il generatore da solo, con foto ferme e scritte, **non è un video finito**: usalo per rifinire, non come video.
-5. **Voce**: generatore gratuito locale (`studio/voce.py`) o ElevenLabs quando serve una voce più espressiva.
+5. **Voce**: `.venv-voce/bin/python studio/voce.py testo.txt voce.mp3` (gratuito, sceglie da solo la pronuncia migliore;
+   usa la voce di Pakima se c'è `studio/brand/voce-riferimento.wav`). ElevenLabs solo se chiesto.
 
 Prima di consegnare, guarda i fotogrammi chiave (estraili con ffmpeg) e controlla: realismo, mani e volti, fedeltà dei
 capi, leggibilità dei testi, zone coperte dall'interfaccia di Instagram/TikTok. Poi passa a Luna.

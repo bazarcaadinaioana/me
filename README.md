@@ -1,7 +1,7 @@
 # Studio di agenti — il negozio
 
 La squadra di Pakima: **Luna** (capo squadra), **Tia** (trend virali), **Benji** (testi), **Stella** (video),
-**Bianca** (foto), **Irina** (andamento e crescita). Per parlare con una di loro basta scrivere il suo nome in chat.
+**Bianca** (foto), **Irina** (social e risultati), **Dasha** (business e fatturato). Per parlare con una di loro basta scrivere il suo nome in chat.
 
 ## Come si usa
 
