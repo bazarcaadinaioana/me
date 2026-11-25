@@ -41,6 +41,11 @@ Usa i prezzi nei contenuti solo se la richiesta lo prevede.
 - La titolare **può comparire** nei video se l'idea è buona: proponi idee in cui comparire sia naturale (consigli di stile, "come abbinare", novità in arrivo).
 - Altrimenti video **nel negozio** con **voce fuori campo** (voce ElevenLabs scelta: "Daniela - Giovane ed elegante", voice_id `kavPiGHUq62Aokyp5Tui`).
 
+## Numeri del negozio (stime della titolare, 25/11/2026)
+- **Clienti che comprano:** in genere **2–3 al giorno**, ma molto variabile: nei giorni brutti non entra nessuno, a volte basta una sola signora che fa **1.000 €** di spesa.
+- **Scontrino medio:** la titolare dice "dipende"; si stima dai prezzi indicativi sopra (nessun dato dal gestionale).
+- **Clienti nuove:** pochissime, **al massimo 1–2 a settimana**. Quasi tutte le clienti sono già fidelizzate.
+
 ## Dati di vendita
 Il gestionale è vecchio e non esporta i dati. Irina lavora con: note della titolare, statistiche social, conteggi semplici
 (es. scontrini al giorno scritti a mano in `dati/note.md`). Proponi metodi semplici per raccogliere dati.
