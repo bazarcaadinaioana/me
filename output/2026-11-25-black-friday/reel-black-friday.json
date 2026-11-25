@@ -1,0 +1,23 @@
+{
+  "formato": "reel",
+  "logo": true,
+  "cornice": "Black Friday",
+  "voce": "voce-black-friday.mp3",
+  "ritardo_voce": 0.3,
+  "scene": [
+    {"tipo": "foto", "foto": "foto/negozio/manichini-bordeaux-panna.jpg", "effetto": "zoom-in", "fuoco": "alto",
+     "sopratitolo": "da Pakima è arrivato il", "testo": "Black Friday", "dimensione": 130, "durata": 3.0},
+    {"tipo": "testo", "sopratitolo": "dal", "testo": "20%", "dimensione": 300, "interlinea": 1.0,
+     "sottotesto": "di sconto su tutto", "sottotesto_forte": true, "dimensione_sottotesto": 44, "durata": 2.5},
+    {"tipo": "testo", "fondo": "scuro", "sopratitolo": "e fino al", "testo": "30%", "dimensione": 300, "interlinea": 1.0,
+     "sottotesto": "sui capi con il fiocco rosso sulla gruccia", "sottotesto_forte": true, "dimensione_sottotesto": 40, "durata": 3.4},
+    {"tipo": "foto", "foto": "foto/negozio/interno-lampadario.jpg", "effetto": "zoom-out", "fuoco": "alto",
+     "testo": "Ti aspettiamo", "sottotesto": "Via Cavour 7 · Vimercate", "durata": 3.0},
+    {"tipo": "pannello", "foto": "foto/negozio/manichini-marrone-panna.jpg", "effetto": "zoom-out", "fuoco": "alto", "altezza_foto": 0.64,
+     "testo": "Su tutta la collezione", "sottotesto": "Maglieria · pantaloni · capispalla · accessori", "durata": 2.8},
+    {"tipo": "prodotto", "foto": "foto/prodotti/nhebyna-piumino-nero-pelliccia.png", "effetto": "zoom-in",
+     "etichetta": "-20%", "testo": "Piumino con cappuccio", "sottotesto": "Nhebyna", "durata": 2.4},
+    {"tipo": "testo", "fondo": "scuro", "testo": "Black Friday", "dimensione": 120,
+     "sottotesto": "Via Cavour 7 · Vimercate", "pillola": "fino al 29 novembre", "durata": 3.0}
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "formato": "post",
-  "tipo": "pannello",
-  "foto": "foto/cappotto.jpg",
+  "tipo": "prodotto",
+  "foto": "foto/prodotti/nhebyna-piumino-nero-pelliccia.png",
   "fuoco": "alto",
-  "marchio": "Nome negozio",
+  "logo": true,
   "etichetta": "Novità",
-  "testo": "Il cappotto che cercavi",
-  "sottotesto": "Lana · color cammello"
+  "testo": "Piumino con cappuccio",
+  "sottotesto": "Nhebyna"
 }
