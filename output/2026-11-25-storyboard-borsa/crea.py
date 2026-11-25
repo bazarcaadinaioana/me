@@ -55,20 +55,18 @@ SCENE = [
          ripresa="Una mano la sfila dal ripiano del negozio e la alza verso la camera, "
                  "che indietreggia: si vede la forma intera.",
          testo="Nuova collezione", audio="Musica in crescendo"),
-    dict(t="0:05–0:08", titolo="3 · In spalla", img=ritaglio(RADICE / "foto/outfit/trench-pelle-pantalone-bordeaux.jpg",
-                                                            (0.15, 0.25, 0.85, 0.95)),
-         ripresa="Camera a mano dietro di lei: mette la borsa in spalla e cammina tra gli "
-                 "stand fino allo specchio (riferimento: questo look).",
-         testo="—", audio="Passi, musica"),
+    dict(t="0:05–0:08", titolo="3 · Il giro", img=ritaglio(BORSA, (0.14, 0.5, 0.86, 0.73), contieni=True),
+         ripresa="Borsa appoggiata sul bancone bianco: la camera a mano le gira attorno lentamente "
+                 "a mezzo cerchio, per mostrare la forma morbida e i lati.",
+         testo="Linea morbida", audio="Musica"),
     dict(t="0:08–0:10", titolo="4 · Il dettaglio", img=ritaglio(BORSA, (0.28, 0.33, 0.42, 0.47)),
          ripresa="Primissimo piano: le dita regolano la fibbia dorata del manico, "
                  "con un leggero fuoco morbido.",
          testo="Dettagli dorati", audio="Click della fibbia"),
-    dict(t="0:10–0:13", titolo="5 · Il look allo specchio",
-         img=ritaglio(RADICE / "foto/outfit/abito-nero-ecopelle-stivali.jpg", (0.0, 0.05, 1.0, 0.95)),
-         ripresa="Selfie allo specchio del camerino con abito nero e stivali, borsa in spalla; "
-                 "una piccola rotazione del busto.",
-         testo="Abbinala così", audio="Musica"),
+    dict(t="0:10–0:13", titolo="5 · Appesa", img=ritaglio(BORSA, (0.2, 0.26, 0.8, 0.66)),
+         ripresa="La borsa appesa per il manico a un gancio o a uno stand: oscilla appena mentre "
+                 "la camera sale lenta dal fondo al manico.",
+         testo="Testa di moro", audio="Musica"),
     dict(t="0:13–0:16", titolo="6 · Il finale", img=finale(),
          ripresa="La borsa viene appoggiata sul bancone bianco, la camera sale lenta; "
                  "compaiono il logo e l'indirizzo.",
