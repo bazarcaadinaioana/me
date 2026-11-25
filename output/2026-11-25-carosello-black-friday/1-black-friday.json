@@ -1,3 +1,4 @@
-{"formato":"post","tipo":"foto","foto":"foto/negozio/manichini-bordeaux-panna.jpg","fuoco":"alto","cornice":"Black Friday","logo":true,
- "sopratitolo":"il Black Friday di Pakima","testo":"-20%","dimensione":190,
- "sottotesto":"su tutto l'abbigliamento","pillola":"e fino al -30% su una selezione di capi"}
+{"formato":"post","tipo":"pannello","foto":"foto/ai/capi-senza-manichini.png","fuoco":"centro","altezza_foto":0.6,
+ "fondo":"scuro","cornice":"Black Friday","logo":false,
+ "sopratitolo":"il Black Friday di Pakima","testo":"-20% su tutto","dimensione":96,
+ "sottotesto":"l'abbigliamento · e fino al -30% su una selezione di capi","dimensione_sottotesto":26}

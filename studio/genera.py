@@ -367,8 +367,9 @@ class Scena:
             su_foto, col = True, colore(stile["chiaro"])
             self.tipo = "foto" if self.tipo == "clip" else self.tipo
         elif self.tipo == "pannello":
-            hf = int(H * dati.get("altezza_foto", 0.62))
-            self.foto = FotoMobile(trova_file(dati["foto"], base), W, hf, effetto, dati.get("fuoco", "centro"))
+            hf = int(H * dati.get("altezza_foto", 0.62)) - s
+            self.foto = FotoMobile(trova_file(dati["foto"], base), W - 2 * s, hf, effetto, dati.get("fuoco", "centro"))
+            self.pos_foto = (s, s)
             self.sfondo = Image.new("RGBA", (W, H), col_fondo)
             su_foto, col = True, colore(stile["chiaro"] if scuro else stile["testo"])
         elif self.tipo == "prodotto":
