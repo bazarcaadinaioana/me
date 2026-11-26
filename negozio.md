@@ -5,7 +5,7 @@
 - **Indirizzo:** Via Camillo Benso Conte di Cavour 7, 20871 Vimercate (MB) — nei contenuti scrivere **"Via Cavour 7, Vimercate"**
 - **Telefono:** 039 598 6052
 - **Orari:** da verificare con la titolare (online le fonti non concordano; indicativamente mar–sab 9:30–12:30 / 15:30–19:00). Non scriverli nei contenuti finché non sono confermati.
-- **Negozio:** abbigliamento e accessori donna, fascia medio-alta. **Taglie dalla 38 alla 52.** Locale elegante: soffitto a cassettoni in legno, lampadario di cristallo, pavimento in cotto, pareti bianche (foto in `foto/negozio/`).
+- **Negozio:** abbigliamento e accessori donna, fascia medio-alta. **Taglie dalla 38 alla 52.** Locale elegante su più sale: soffitto a travi in legno scuro, lampadario di cristallo, specchi barocchi argento, poltroncine argento, pavimento in cotto a losanghe, pareti bianche, finestre con grate sul centro storico (foto in `foto/negozio/`).
 - **Cosa ci rende diversi:** le commesse aiutano la cliente a **creare i completi** di cui ha bisogno e a **valorizzare la sua fisicità**. Consulenza personale, non self-service.
 
 ## Marchi in negozio

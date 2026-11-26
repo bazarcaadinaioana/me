@@ -38,6 +38,17 @@ Nota: lo sfondo comune è il pavimento in cotto del negozio. Tutte le foto sono 
 | negozio/manichino-felpa-moro-maglia-zigzag-jeans-panna.jpg | Felpa moro con cappuccio, maglia zig-zag, sciarpa e berretto panna, jeans panna; sullo sfondo stand Surkana |
 | negozio/manichini-nhebyna-giacca-montone-gonna-cardigan.jpg | Giacca effetto montone moro + foulard a pois + gonna satin panna; dolcevita moro + cardigan bicolore + pantalone velluto moro |
 
+## Interni del negozio (per riprese, sfondi e storie "dietro le quinte")
+| File | Cosa |
+|---|---|
+| negozio/interno-angolo-verdi-finestre.jpg | Angolo dei verdi, finestre con grate e alberi gialli fuori, poltroncina argento |
+| negozio/interno-centrale-cubo-specchio.jpg | Sala centrale: cubo grigio, specchio barocco argento, vista in profondità fino all'ingresso |
+| negozio/interno-soffitto-legno-neri-grigi.jpg | Soffitto in travi di legno scuro, stand neri/grigi/bianchi, poster Nhebyna |
+| negozio/interno-lampadario-marroni-cassa.jpg | Lampadario di cristallo, stand marroni, foulard, bancone cassa |
+| negozio/interno-parete-bordeaux-vetro.jpg | Parete bordeaux: blusa paisley, ripiani in vetro, specchio bianco |
+
+Punti più fotogenici: lampadario di cristallo, specchio barocco argento, soffitto in travi, poltroncine argento, cotto a losanghe, finestre con alberi gialli (autunno).
+
 ## Accessori
 | File | Cosa | Prezzo noto |
 |---|---|---|
