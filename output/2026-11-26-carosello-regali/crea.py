@@ -24,6 +24,7 @@ BIANCO = (255, 255, 255)
 CREMA = (250, 244, 236)
 ORO = (240, 196, 120)
 F_SANS = str(RADICE / "studio/font/Montserrat-SemiBold.ttf")
+F_TIT = F_CORS_T = None
 F_CORS = str(RADICE / "studio/font/PlayfairDisplay-Italic.ttf")
 
 
@@ -34,16 +35,20 @@ def font(p, s):
 # ---------------------------------------------------------------- decori
 
 def sfondo():
-    """Rosso profondo con una leggera luce al centro di ogni slide."""
-    tela = Image.new("RGBA", (TOT, H), ROSSO + (255,))
-    v = Image.new("L", (TOT // 8, H // 8), 0)
-    d = ImageDraw.Draw(v)
+    """Lo sfondo rosso con fiocchi e stelline della titolare, su ogni slide (una si, una no specchiato)."""
+    bg = Image.open(RADICE / "foto/ai/natale-sfondo-fiocchi.png").convert("RGBA")
+    bg = ImageOps.fit(bg, (W, H), Image.LANCZOS)
+    tela = Image.new("RGBA", (TOT, H))
     for k in range(N):
-        cx = (k * W + W / 2) / 8
-        d.ellipse((cx - W / 10, -H / 16, cx + W / 10, H / 8 + H / 16), fill=255)
-    v = v.filter(ImageFilter.GaussianBlur(30)).resize((TOT, H))
-    chiaro = Image.new("RGBA", (TOT, H), (178, 24, 34, 255))
-    return Image.composite(chiaro, tela, v)
+        tela.paste(bg if k % 2 == 0 else ImageOps.mirror(bg), (k * W, 0))
+    return tela
+
+
+def decoro(tela, file, larg, x, y):
+    im = Image.open(RADICE / file).convert("RGBA")
+    im = im.resize((larg, int(im.height * larg / im.width)), Image.LANCZOS)
+    tela.alpha_composite(im, (int(x), int(y)))
+    return im.size
 
 
 def fiocco(d, cx, cy, r, col, w=2):
@@ -225,27 +230,24 @@ def polaroid(percorso_foto, w, h, didascalia, ang):
 def main():
     tela = sfondo()
     x4 = 3 * W
-    fiocchi(tela, 30, 3, [(60, 520, 1080, 900), (x4 + 120, 280, x4 + 1080, 1300), (0, 900, 560, 1350),
-                          (600, 0, 1080, 560)])
 
     # slide 1
-    f1 = font(F_SANS, 150)
+    f1 = font(F_CORS, 160)
     d = ImageDraw.Draw(tela)
     tela.alpha_composite(g.logo(g.STILE_BASE, True, 230), (90, 120))
     y_its = 540
-    d.text((120, y_its), "It's", font=f1, fill=BIANCO)
-    y_time = y_its + 150
-    d.text((120, y_time), "time", font=f1, fill=BIANCO)
-    x_fine = 120 + d.textlength("time", font=f1)
+    d.text((110, y_its), "It's", font=font(F_CORS, 120), fill=BIANCO)
+    y_time = y_its + 130
+    d.text((110, y_time), "time", font=f1, fill=BIANCO)
+    x_fine = 110 + d.textlength("time", font=f1)
     bb = f1.getbbox("e")
     scia(tela, f1, x_fine + 4, y_time + (bb[1] + bb[3]) / 2)
-    for cx, yc, r, tipo in [(700, 230, 44, "oro"), (820, 330, 36, "rossa"), (1010, 220, 50, "oro"), (915, 440, 52, "perla")]:
-        pallina(tela, cx, yc, r, tipo)
-    alberello(tela, 230, 960, 330, 330)
+    decoro(tela, "foto/ai/natale-palline-trasp.png", 560, W - 560 + 20, -40)
+    decoro(tela, "foto/ai/natale-albero-dorato-trasp.png", 420, -30, H - 420 * 1312 / 1199 + 30)
 
     # slide 4
     for j, riga in enumerate(["to find you", "the perfect gift"]):
-        d.text((x4 + 160 + j * 30, 340 + j * 96), riga, font=font(F_SANS, 78), fill=BIANCO)
+        d.text((x4 + 160 + j * 40, 320 + j * 110), riga, font=font(F_CORS, 100), fill=BIANCO)
     foto = [("foto/ai/regalo-maglione-nero-paillettes.png", "un maglione", 6, (x4 + 40, 610)),
             ("foto/ai/regalo-borsa-beige.png", "una borsa", -4, (x4 + 370, 570)),
             ("foto/ai/regalo-collane-cristalli.png", "un gioiello", 5, (x4 + 700, 625))]
