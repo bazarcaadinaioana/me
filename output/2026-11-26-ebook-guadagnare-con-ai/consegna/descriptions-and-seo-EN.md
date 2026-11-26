@@ -2,8 +2,10 @@
 
 ## Title and subtitle
 
+> **Amazon KDP rule:** the title and subtitle entered in the form must match the cover exactly, with no added keywords. Extra keywords go in the 7 keyword fields. On Etsy, the listing title can contain more keywords (see below).
+
 **Title:** Make Money with Artificial Intelligence
-**Subtitle:** The Practical Guide to Building Income Streams, Starting a Digital Business, and Monetizing AI from Scratch
+**Subtitle:** A Practical Beginner's Guide to Making Money Online with AI, Creating Digital Products and Starting a Digital Business from Scratch
 
 ---
 
@@ -43,7 +45,7 @@ The practical, honest guide to turning artificial intelligence into real work, e
 ## Etsy listing (see the warning in the README before publishing)
 
 **Title (max 140 characters):**
-Make Money with AI Ebook PDF, Beginner Guide to AI Side Hustles, 55 ChatGPT Prompts, 30 Day Plan, Digital Business Workbook
+Make Money Online with Artificial Intelligence Ebook PDF, AI Beginner Guide, ChatGPT Prompts, Digital Business, Side Hustle
 
 **13 tags (max 20 characters each):**
 1. ai ebook

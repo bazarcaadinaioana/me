@@ -2,8 +2,10 @@
 
 ## Titolo e sottotitolo
 
+> **Regola Amazon KDP:** titolo e sottotitolo inseriti nel modulo devono essere identici a quelli stampati in copertina, senza parole chiave aggiunte. Le parole chiave extra vanno nei 7 campi dedicati. Su Etsy il titolo dell'inserzione può invece contenere più parole chiave (vedi sotto).
+
 **Titolo:** Guadagnare con l'Intelligenza Artificiale
-**Sottotitolo:** La guida pratica per creare nuove opportunità di reddito, avviare un business digitale e monetizzare l'AI anche partendo da zero
+**Sottotitolo:** La guida pratica per principianti: guadagnare online con l'AI, creare prodotti digitali e avviare un business digitale anche partendo da zero
 
 ---
 
@@ -43,7 +45,7 @@ La guida pratica e onesta per trasformare l'intelligenza artificiale in un'attiv
 ## Inserzione Etsy (vedi avvertenza nel README prima di pubblicare)
 
 **Titolo (max 140 caratteri):**
-Guadagnare con l'AI Ebook PDF in Italiano, Guida Pratica per Principianti, 55 Prompt, Piano 30 Giorni, Business Digitale
+Guadagnare Online con l'Intelligenza Artificiale Ebook PDF Italiano, Guida AI Principianti, Prompt ChatGPT, Business Digitale
 
 **13 tag (max 20 caratteri ciascuno):**
 1. ebook intelligenza

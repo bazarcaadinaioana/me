@@ -128,3 +128,4 @@ section.appendix p { text-align: left; }
 h1, h2, h3, .titlepage .t1, .titlepage .t2, nav.toc li { hyphens: manual; }
 ol { padding-left: 1.45em; }
 ol li { padding-left: .15em; }
+.titlepage .au { font-family: "BkDisplay"; font-size: 13pt; letter-spacing: .04em; }

@@ -72,6 +72,8 @@ Per questo motivo, prima di acquistare un abbonamento o di aprire un negozio, **
 
 ## Una nota su come è stato realizzato questo libro
 
-Coerentemente con quanto insegna, questo libro è stato realizzato con il supporto di strumenti di intelligenza artificiale, sotto supervisione editoriale umana: struttura, verifica delle fonti, revisione e responsabilità finale dei contenuti sono umane. Lo diciamo apertamente perché è esattamente il comportamento che ti chiederemo di adottare: **usare l'AI come strumento, dichiararlo quando serve, e rispondere sempre in prima persona della qualità di ciò che vendi**.
+Coerentemente con quanto insegna, questo libro dichiara apertamente come è nato. **Il testo, i diagrammi e la copertina sono stati generati con strumenti di intelligenza artificiale**, a partire da un progetto editoriale dell'autrice, che ne ha definito obiettivi, struttura e criteri di qualità e ne cura la revisione, la verifica delle fonti e gli aggiornamenti. Le informazioni su piattaforme, prezzi e norme sono state controllate su fonti pubbliche.
+
+Lo diciamo perché è esattamente il comportamento che ti chiederemo di adottare: **usare l'AI come strumento, dichiararlo con chiarezza, e rispondere sempre in prima persona della qualità di ciò che vendi**.
 
 Questo libro non costituisce consulenza fiscale, legale o finanziaria. Per le decisioni che riguardano tasse, contratti e forme giuridiche rivolgiti a un professionista abilitato nel tuo Paese.

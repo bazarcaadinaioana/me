@@ -16,13 +16,13 @@ FONTS = f"""
 @font-face{{font-family:Sans;src:url({b64(FD+"/Inter-Regular.otf","font/otf")});font-weight:400}}
 @font-face{{font-family:Sans;src:url({b64(FD+"/Inter-SemiBold.otf","font/otf")});font-weight:600}}
 @font-face{{font-family:Sans;src:url({b64(FD+"/Inter-Bold.otf","font/otf")});font-weight:700}}
-@font-face{{font-family:Serif;src:url({b64(FD+"/source-serif-4-latin-400-normal.ttf","font/ttf")})}}
+@font-face{{font-family:BkSerif;src:url({b64(FD+"/source-serif-4-latin-400-normal.ttf","font/ttf")})}}
 """
 INK, GOLD, CREAM = "#141a26", "#c9a45c", "#f3eee4"
 
 TXT = {
  "it": dict(kicker="Guida pratica · Edizione 2026", t=["Guadagnare", "con l'Intelligenza", "Artificiale"],
-            sub="La guida pratica per creare nuove opportunità di reddito, avviare un business digitale e monetizzare l'AI anche partendo da zero",
+            sub="La guida pratica per principianti: guadagnare online con l'AI, creare prodotti digitali e avviare un business digitale anche partendo da zero",
             badges=["12 modi per guadagnare", "5 tutorial completi", "55 prompt pronti", "Piano di 30 giorni"],
             promo1="Dall'idea alla prima vendita,<br/>senza promesse irrealistiche",
             inside="Cosa trovi dentro", pages="40 capitoli · glossario · fonti ufficiali",
@@ -31,7 +31,7 @@ TXT = {
             plan="Piano operativo di 30 giorni", plan_sub="Scegliere · Costruire · Presentare · Testare",
             weeks=["Settimana 1 — Scegliere", "Settimana 2 — Costruire", "Settimana 3 — Presentare", "Settimana 4 — Testare"]),
  "en": dict(kicker="Practical guide · 2026 edition", t=["Make Money", "with Artificial", "Intelligence"],
-            sub="The Practical Guide to Building Income Streams, Starting a Digital Business, and Monetizing AI from Scratch",
+            sub="A Practical Beginner's Guide to Making Money Online with AI, Creating Digital Products and Starting a Digital Business from Scratch",
             badges=["12 ways to earn", "5 complete tutorials", "55 ready-to-use prompts", "30-day action plan"],
             promo1="From first idea to first sale,<br/>without unrealistic promises",
             inside="What's inside", pages="40 chapters · glossary · official sources",
@@ -64,20 +64,24 @@ def motif(w, h, opacity=1):
 
 def cover_html(lang, W, H):
     t = TXT[lang]
+    feats = "".join(f'<span>{x}</span>' for x in t["badges"])
     return f"""<html><head><style>{FONTS}
 *{{margin:0;padding:0;box-sizing:border-box}}
-body{{width:{W}px;height:{H}px;background:{INK};color:{CREAM};font-family:Sans;position:relative;overflow:hidden}}
-.frame{{position:absolute;inset:{W*0.045}px;border:1.5px solid rgba(201,164,92,.45)}}
-.kicker{{position:absolute;top:{H*0.085}px;left:0;right:0;text-align:center;font-weight:600;font-size:{W*0.021}px;letter-spacing:.32em;text-transform:uppercase;color:{GOLD}}}
-.art{{position:absolute;top:{H*0.13}px;left:{W*0.1}px}}
-.title{{position:absolute;top:{H*0.50}px;left:{W*0.1}px;right:{W*0.1}px;font-family:Display;font-weight:400;font-size:{W*0.105}px;line-height:1.02;letter-spacing:-.01em}}
-.title .l2{{font-style:italic;color:{GOLD};font-weight:400}}
-.rule{{position:absolute;top:{H*0.785}px;left:{W*0.1}px;width:{W*0.12}px;height:3px;background:{GOLD}}}
-.sub{{position:absolute;top:{H*0.81}px;left:{W*0.1}px;right:{W*0.14}px;font-family:Serif;font-size:{W*0.0275}px;line-height:1.45;color:#cfd3dc}}
+body{{width:{W}px;height:{H}px;background:radial-gradient(ellipse at 70% 18%, #24304a 0%, {INK} 58%);color:{CREAM};font-family:Sans;position:relative;overflow:hidden}}
+.frame{{position:absolute;inset:{W*0.04}px;border:1.5px solid rgba(201,164,92,.5)}}
+.kicker{{position:absolute;top:{H*0.07}px;left:0;right:0;text-align:center;font-weight:600;font-size:{W*0.02}px;letter-spacing:.34em;text-transform:uppercase;color:{GOLD}}}
+.art{{position:absolute;top:{H*0.105}px;left:{W*0.1}px}}
+.title{{position:absolute;top:{H*0.39}px;left:{W*0.09}px;right:{W*0.06}px;font-family:Display;font-weight:600;font-size:{W*0.122}px;line-height:.98;letter-spacing:-.015em}}
+.title .l2{{font-style:italic;color:{GOLD};font-weight:400;font-size:{W*0.098}px}}
+.rule{{position:absolute;top:{H*0.665}px;left:{W*0.09}px;width:{W*0.14}px;height:4px;background:{GOLD}}}
+.sub{{position:absolute;top:{H*0.685}px;left:{W*0.09}px;right:{W*0.12}px;font-family:BkSerif;font-size:{W*0.03}px;line-height:1.42;color:#dde0e7}}
+.feats{{position:absolute;top:{H*0.80}px;left:{W*0.09}px;right:{W*0.09}px;display:grid;grid-template-columns:1fr 1fr;gap:{W*0.014}px}}
+.feats span{{border:1.5px solid rgba(201,164,92,.75);color:{CREAM};font-weight:600;font-size:{W*0.021}px;padding:{W*0.01}px {W*0.018}px;border-radius:40px;letter-spacing:.02em;text-align:center}}
+.au{{position:absolute;bottom:{H*0.065}px;left:0;right:0;text-align:center;font-family:Display;font-size:{W*0.04}px;letter-spacing:.16em;color:{GOLD}}}
 </style></head><body><div class="frame"></div><div class="kicker">{t['kicker']}</div>
-<div class="art">{motif(int(W*0.8), int(H*0.33), .95)}</div>
+<div class="art">{motif(int(W*0.8), int(H*0.25), .9)}</div>
 <div class="title">{t['t'][0]}<br/><span class="l2">{t['t'][1]}</span><br/>{t['t'][2]}</div>
-<div class="rule"></div><div class="sub">{t['sub']}</div></body></html>"""
+<div class="rule"></div><div class="sub">{t['sub']}</div><div class="feats">{feats}</div><div class="au">IRINA B.</div></body></html>"""
 
 def promo_html(lang, kind, W, H, cover_png):
     t = TXT[lang]
