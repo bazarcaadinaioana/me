@@ -1,0 +1,26 @@
+@font-face { font-family: "BkSerif"; src: url(../fonts/source-serif-4-latin-400-normal.ttf); }
+@font-face { font-family: "BkSerif"; src: url(../fonts/source-serif-4-latin-400-italic.ttf); font-style: italic; }
+@font-face { font-family: "BkSerif"; src: url(../fonts/source-serif-4-latin-600-normal.ttf); font-weight: 600; }
+@font-face { font-family: "BkSerif"; src: url(../fonts/source-serif-4-latin-700-normal.ttf); font-weight: bold; }
+@font-face { font-family: "BkDisplay"; src: url(../fonts/fraunces-latin-400-normal.ttf); }
+@font-face { font-family: "BkDisplay"; src: url(../fonts/fraunces-latin-600-normal.ttf); font-weight: 600; }
+body { font-family: "BkSerif", serif; line-height: 1.5; color: #1d2433; }
+h1 { font-family: "BkDisplay", serif; font-weight: normal; font-size: 1.7em; line-height: 1.2; margin: 1.5em 0 .8em; }
+h1.part { text-align: center; margin-top: 3em; color: #b8893b; }
+h2 { font-family: "BkDisplay", serif; font-weight: 600; font-size: 1.25em; margin: 1.4em 0 .4em; }
+h3 { font-family: sans-serif; font-size: .95em; margin: 1.2em 0 .3em; }
+p { margin: 0 0 .6em; }
+table { border-collapse: collapse; width: 100%; font-size: .78em; margin: .8em 0; }
+th { background: #1d2433; color: #fff; text-align: left; padding: .3em; }
+td { border-bottom: 1px solid #ddd5c4; padding: .3em; vertical-align: top; }
+pre { white-space: pre-wrap; font-size: .75em; background: #f6f2ea; border-left: 3px solid #b8893b; padding: .6em; }
+div.box { padding: .5em .8em; margin: 1em 0; border-left: 3px solid #b8893b; background: #f6f2ea; }
+div.tip { border-color: #5f8a6b; background: #eef3ee; }
+div.warn { border-color: #b5653e; background: #fbf0ea; }
+div.ipotesi { border-color: #5b5f97; background: #f2f1f8; }
+div.recap { background: #f6f2ea; border-top: 3px solid #1d2433; padding: .3em .9em; margin: 1.5em 0; }
+div.recap h3 { color: #b8893b; text-transform: uppercase; letter-spacing: .1em; font-size: .8em; }
+ul.task-list { list-style: none; padding-left: .3em; }
+figure { margin: 1em 0; text-align: center; }
+figure img { max-width: 100%; }
+figcaption { font-size: .8em; color: #6b7280; }
