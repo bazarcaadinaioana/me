@@ -56,3 +56,15 @@ Nota: lo sfondo comune è il pavimento in cotto del negozio. Tutte le foto sono 
 - **Total green**: maglia salvia orlo pelo + pantalone velluto oliva + maglione mélange o mouliné.
 - **Tre cappotti, tre stili**: lungo nero Nhebyna · pelo moro Allegra · quadri Surkana.
 - **Look feste**: maglia nera paillettes o bordeaux lurex + collana Aladdin + borsa nera.
+
+## Video (girati in negozio, verticali 1080x1920, senza audio)
+| File | Durata | Cosa si vede |
+|---|---|---|
+| video/maglia-bordeaux-collana-catalogo-nhebyna.mp4 | 9 s | Maglia bordeaux con collana sul ripiano di vetro, catalogo Nhebyna, maglie panna piegate |
+| video/catalogo-nhebyna-maglie-panna-occhielli.mp4 | 6 s | Pagine del catalogo Nhebyna (look bordeaux), maglie panna con occhielli |
+| video/aladdin-collana-cerchi-poster-nhebyna.mp4 | 3 s | Collana Aladdin a cerchi oro e cristalli rossi, poster Nhebyna, bracciale oro |
+| video/stand-blusa-paisley-giacca-ecopelliccia.mp4 | 8 s | Stand: blusa paisley, maglie bordeaux e panna, giacca ecopelliccia panna, basco rosso |
+| video/stand-rossi-bordeaux-principe-galles.mp4 | 7 s | Stand rossi/bianchi per le feste: maglia bordeaux lurex, completo principe di Galles |
+| video/stand-marroni-piumino-cappotto-pelo.mp4 | 5 s | Stand marroni: piumino moro, maglia occhielli, cappotto effetto pelo |
+
+Uso consigliato: clip di apertura/riempimento per reel "Nuovi arrivi", "Look per le feste" (rossi e bordeaux), "Tre cappotti". Gli originali .mov restano nella chat.
