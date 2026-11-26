@@ -77,5 +77,7 @@ Punti più fotogenici: lampadario di cristallo, specchio barocco argento, soffit
 | video/stand-blusa-paisley-giacca-ecopelliccia.mp4 | 8 s | Stand: blusa paisley, maglie bordeaux e panna, giacca ecopelliccia panna, basco rosso |
 | video/stand-rossi-bordeaux-principe-galles.mp4 | 7 s | Stand rossi/bianchi per le feste: maglia bordeaux lurex, completo principe di Galles |
 | video/stand-marroni-piumino-cappotto-pelo.mp4 | 5 s | Stand marroni: piumino moro, maglia occhielli, cappotto effetto pelo |
+| video/angolo-verdi-maglione-melange.mp4 | 9 s | Dettaglio maglione mélange, poi panoramica sullo stand dei verdi (maglia ricamata, piumini chiari) |
+| video/surkana-cappotto-quadri-zoom.mp4 | 4 s | Cappotto Surkana a quadri: dal dettaglio dei bottoni al capo intero |
 
 Uso consigliato: clip di apertura/riempimento per reel "Nuovi arrivi", "Look per le feste" (rossi e bordeaux), "Tre cappotti". Gli originali .mov restano nella chat.
