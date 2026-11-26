@@ -38,7 +38,7 @@ Se cerchi una guida seria per usare l'AI come strumento di lavoro, e non l'ennes
 
 ## Descrizione breve (Payhip / Gumroad / sito — circa 600 caratteri)
 
-La guida pratica e onesta per trasformare l'intelligenza artificiale in un'attività reale, anche partendo da zero. 12 modi per guadagnare analizzati in dettaglio, 5 tutorial dall'idea al lancio, 55 prompt pronti, una guida agli strumenti con prezzi verificati a novembre 2026 e un piano operativo di 30 giorni. Nessuna promessa di guadagno facile: solo metodo, esempi e checklist. PDF + EPUB, 234 pagine.
+La guida pratica e onesta per trasformare l'intelligenza artificiale in un'attività reale, anche partendo da zero. 12 modi per guadagnare analizzati in dettaglio, 5 tutorial dall'idea al lancio, 55 prompt pronti, una guida agli strumenti con prezzi verificati a novembre 2026 e un piano operativo di 30 giorni. Nessuna promessa di guadagno facile: solo metodo, esempi e checklist. PDF + EPUB, 236 pagine.
 
 ---
 

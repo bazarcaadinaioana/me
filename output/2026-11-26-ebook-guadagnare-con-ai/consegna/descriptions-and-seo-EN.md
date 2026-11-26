@@ -38,7 +38,7 @@ If you want a serious guide to using AI as a working tool rather than yet anothe
 
 ## Short description (Payhip / Gumroad / website — about 550 characters)
 
-The practical, honest guide to turning artificial intelligence into real work, even from scratch. 12 ways to earn analyzed in depth, 5 tutorials from idea to launch, 55 ready-to-use prompts, a tools guide with prices checked in November 2026, and a 30-day action plan. No easy-money promises: just method, examples and checklists. PDF + EPUB.
+The practical, honest guide to turning artificial intelligence into real work, even from scratch. 12 ways to earn analyzed in depth, 5 tutorials from idea to launch, 55 ready-to-use prompts, a tools guide with prices checked in November 2026, and a 30-day action plan. No easy-money promises: just method, examples and checklists. PDF + EPUB, 231 pages.
 
 ---
 

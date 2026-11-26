@@ -7,7 +7,7 @@ Autrice: **Irina B.** · Regole verificate a novembre 2026. Prima di pubblicare 
 | Elemento | Come è stato creato | Etsy | Amazon KDP |
 |---|---|---|---|
 | Testo italiano | Generato con un assistente AI (Claude) su un progetto editoriale, con verifica delle fonti | Da dichiarare | "Generato dall'AI": **sì** |
-| Testo inglese | Adattamento dal testo italiano con un assistente AI (GPT-5.5), poi controllato | Da dichiarare | Traduzione generata dall'AI: **sì** |
+| Testo inglese | Adattamento dal testo italiano con un assistente AI (Claude), poi controllato | Da dichiarare | Traduzione generata dall'AI: **sì** |
 | Copertina, diagrammi, immagini promo | Grafica tipografica generata da codice scritto da un assistente AI (nessuna foto o illustrazione da generatore di immagini) | Da dichiarare | Immagini generate dall'AI: **sì** (scelta prudente) |
 
 La definizione di KDP è ampia: è "generato dall'AI" anche ciò che è stato poi modificato in modo sostanziale. Per questo, anche dopo la revisione di Irina, **su KDP la risposta resta "sì"**.
