@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Carosello continuo di Natale (trend "It's timeeee"): la scritta prosegue da una slide all'altra."""
+"""Carosello continuo di Natale "It's timeeee…": la scritta prosegue da una slide all'altra.
+
+Slide 1: "It's time" + scia di "e" (stesso carattere, scende morbida poi va dritta), alberello luminoso
+di particelle dorate, palline appese, fiocchi dorati. Slide 2-3: la scia ondeggia e fa un giro.
+Slide 4: "to find you the perfect gift" + 3 polaroid regalo.
+"""
 import math
 import random
 import sys
@@ -14,25 +19,149 @@ import genera as g  # noqa: E402
 
 W, H, N = 1080, 1350, 4
 TOT = W * N
-ROSSO = (168, 18, 30)
+ROSSO = (150, 16, 24)
 BIANCO = (255, 255, 255)
 CREMA = (250, 244, 236)
-F_CORS = str(RADICE / "studio/font/PlayfairDisplay-Italic.ttf")
-F_TIT = str(RADICE / "studio/font/PlayfairDisplay-SemiBold.ttf")
+ORO = (240, 196, 120)
 F_SANS = str(RADICE / "studio/font/Montserrat-SemiBold.ttf")
+F_CORS = str(RADICE / "studio/font/PlayfairDisplay-Italic.ttf")
 
 
 def font(p, s):
     return ImageFont.truetype(p, int(s))
 
 
-def stella(d, cx, cy, r, col):
-    k = r * 0.28
-    d.polygon([(cx, cy - r), (cx + k, cy - k), (cx + r, cy), (cx + k, cy + k),
-               (cx, cy + r), (cx - k, cy + k), (cx - r, cy), (cx - k, cy - k)], fill=col)
+# ---------------------------------------------------------------- decori
+
+def sfondo():
+    """Rosso profondo con una leggera luce al centro di ogni slide."""
+    tela = Image.new("RGBA", (TOT, H), ROSSO + (255,))
+    v = Image.new("L", (TOT // 8, H // 8), 0)
+    d = ImageDraw.Draw(v)
+    for k in range(N):
+        cx = (k * W + W / 2) / 8
+        d.ellipse((cx - W / 10, -H / 16, cx + W / 10, H / 8 + H / 16), fill=255)
+    v = v.filter(ImageFilter.GaussianBlur(30)).resize((TOT, H))
+    chiaro = Image.new("RGBA", (TOT, H), (178, 24, 34, 255))
+    return Image.composite(chiaro, tela, v)
 
 
-def catmull(pts, n=40):
+def fiocco(d, cx, cy, r, col, w=2):
+    for k in range(6):
+        a = math.radians(60 * k)
+        d.line([(cx, cy), (cx + r * math.cos(a), cy + r * math.sin(a))], fill=col, width=w)
+        for f in (0.45, 0.7):
+            bx, by = cx + r * f * math.cos(a), cy + r * f * math.sin(a)
+            for s in (-1, 1):
+                b = a + s * math.radians(40)
+                d.line([(bx, by), (bx + r * 0.25 * math.cos(b), by + r * 0.25 * math.sin(b))], fill=col, width=w)
+
+
+def fiocchi(tela, n, seme, zone_vietate):
+    random.seed(seme)
+    lay = Image.new("RGBA", tela.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    messi = 0
+    while messi < n:
+        x, y = random.randint(40, TOT - 40), random.randint(40, H - 40)
+        if any(x0 <= x <= x1 and y0 <= y <= y1 for x0, y0, x1, y1 in zone_vietate):
+            continue
+        r = random.choice([14, 18, 24, 34, 46])
+        fiocco(d, x, y, r, ORO + (int(random.uniform(45, 95)),), 2 if r < 30 else 3)
+        messi += 1
+    tela.alpha_composite(lay.filter(ImageFilter.GaussianBlur(0.6)))
+
+
+def alberello(tela, apex_x, apex_y, altezza, base_w, seme=5):
+    """Albero luminoso fatto di particelle dorate, con bagliore e bokeh alla base."""
+    random.seed(seme)
+    K = 2
+    lw, lh = int(base_w * 1.7), int(altezza * 1.3)
+    lay = Image.new("RGBA", (lw * K, lh * K), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    cx, top = lw * K / 2, 40 * K
+
+    def punto(x, y, r, a):
+        c = (255, random.randint(205, 235), random.randint(140, 190), int(max(0, min(255, a))))
+        d.ellipse((x - r, y - r, x + r, y + r), fill=c)
+
+    for _ in range(2600):  # spirale di luci attorno al cono
+        t = random.random() ** 0.8
+        y = top + t * altezza * K
+        ang = t * 9 * math.pi + random.uniform(-0.35, 0.35)
+        x = cx + t * base_w / 2 * K * math.sin(ang) + random.gauss(0, 6 * K)
+        prof = (math.cos(ang) + 1) / 2
+        punto(x, y + random.gauss(0, 4 * K), random.choice([1, 1, 1.5, 2, 2.5, 3]) * K * (0.6 + 0.6 * prof),
+              random.uniform(90, 255) * (0.45 + 0.55 * prof))
+    for _ in range(2200):  # riempimento morbido del cono
+        t = random.random() ** 0.7
+        punto(cx + random.uniform(-1, 1) * t * base_w / 2 * K, top + t * altezza * K,
+              random.choice([0.8, 1, 1.4]) * K, random.uniform(40, 150))
+    for _ in range(1400):  # polvere dorata alla base
+        punto(cx + random.gauss(0, base_w * 0.55) * K, top + altezza * K + abs(random.gauss(0, 30)) * K - 10 * K,
+              random.choice([1, 1.5, 2, 3]) * K, random.uniform(60, 220))
+    bok = Image.new("RGBA", lay.size, (0, 0, 0, 0))
+    db = ImageDraw.Draw(bok)
+    for _ in range(40):  # bokeh
+        t = random.random()
+        x = cx + random.uniform(-1, 1) * (t * base_w / 2 + 60) * K
+        y = top + t * altezza * K + random.uniform(-20, 60) * K
+        r = random.uniform(5, 14) * K
+        db.ellipse((x - r, y - r, x + r, y + r), fill=(255, 215, 150, random.randint(40, 110)))
+    bok = bok.filter(ImageFilter.GaussianBlur(3 * K))
+    glow = lay.filter(ImageFilter.GaussianBlur(9 * K))
+    out = Image.new("RGBA", lay.size, (0, 0, 0, 0))
+    out.alpha_composite(glow)
+    out.alpha_composite(glow)
+    out.alpha_composite(bok)
+    out.alpha_composite(lay)
+    ds = ImageDraw.Draw(out)  # stella-scintilla in cima
+    r = 26 * K
+    for a, l in [(0, 1), (90, 1.2), (45, 0.45), (135, 0.45)]:
+        aa = math.radians(a)
+        dx, dy = math.cos(aa) * r * l, math.sin(aa) * r * l
+        ds.line([(cx - dx, top - dy), (cx + dx, top + dy)], fill=(255, 240, 210, 255), width=2 * K)
+    out = out.resize((lw, lh), Image.LANCZOS)
+    tela.alpha_composite(out, (int(apex_x - lw / 2), int(apex_y - 40)))
+
+
+def pallina(tela, cx, y_centro, r, tipo):
+    """Pallina di Natale appesa a un filo, con riflesso e ombra."""
+    K = 3
+    S = int(r * 2 * K + 40 * K)
+    lay = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    c, R = S / 2, r * K
+    base = {"oro": (200, 148, 62), "perla": (226, 216, 200), "rossa": (110, 8, 18)}[tipo]
+    luce = {"oro": (255, 240, 190), "perla": (255, 255, 252), "rossa": (235, 95, 105)}[tipo]
+    for i in range(80, 0, -1):
+        f = i / 80
+        col = tuple(int(base[j] * f + luce[j] * (1 - f)) for j in range(3))
+        rr = R * f
+        ox, oy = -R * 0.32 * (1 - f), -R * 0.36 * (1 - f)
+        d.ellipse((c + ox - rr, c + oy - rr, c + ox + rr, c + oy + rr), fill=col + (255,))
+    bordo = Image.new("L", (S, S), 0)
+    ImageDraw.Draw(bordo).ellipse((c - R, c - R, c + R, c + R), outline=110, width=int(R * 0.16))
+    scuro = Image.new("RGBA", (S, S), (50, 12, 10, 255))
+    scuro.putalpha(bordo.filter(ImageFilter.GaussianBlur(R * 0.1)))
+    lay.alpha_composite(scuro)
+    mask = Image.new("L", (S, S), 0)
+    ImageDraw.Draw(mask).ellipse((c - R, c - R, c + R, c + R), fill=255)
+    lay.putalpha(mask)
+    dc = ImageDraw.Draw(lay)  # cappuccio dorato
+    dc.rounded_rectangle((c - R * 0.22, c - R - R * 0.2, c + R * 0.22, c - R + R * 0.08), R * 0.05, fill=(205, 165, 90, 255))
+    lay = lay.resize((S // K, S // K), Image.LANCZOS)
+    om = Image.new("RGBA", lay.size, (0, 0, 0, 0))
+    om.putalpha(lay.getchannel("A").point(lambda v: int(v * 0.45)))
+    om = om.filter(ImageFilter.GaussianBlur(10))
+    ImageDraw.Draw(tela).line([(cx, 0), (cx, y_centro - r * 1.15)], fill=(225, 190, 130, 255), width=2)
+    tela.alpha_composite(om, (int(cx - lay.width / 2 + 8), int(y_centro - lay.height / 2 + 14)))
+    tela.alpha_composite(lay, (int(cx - lay.width / 2), int(y_centro - lay.height / 2)))
+
+
+# ---------------------------------------------------------------- scia di "e"
+
+def catmull(pts, n=50):
     out = []
     P = [pts[0]] + pts + [pts[-1]]
     for i in range(1, len(P) - 2):
@@ -47,35 +176,39 @@ def catmull(pts, n=40):
 
 
 def percorso(x0, y0):
-    """Scia di 'e': dritta nella slide 1, poi onda morbida, giro della morte, arrivo sul testo finale."""
-    c = [(x0, y0), (700, y0), (1000, y0), (1150, y0 + 15),
-         (1330, y0 + 110), (1530, y0 + 200), (1750, y0 + 170), (1950, y0 + 40), (2150, y0 - 10),
-         (2380, y0 + 80), (2600, y0 + 150), (2800, y0 + 20), (2770, y0 - 230), (2580, y0 - 280),
-         (2440, y0 - 120), (2560, y0 + 90), (2780, y0 + 170), (3020, y0 + 120), (3200, y0 - 60),
-         (3320, 420), (3380, 395)]
-    return catmull(c, 60)
+    """Scende morbida subito dopo "time", poi dritta; onda nella slide 2, giro nella 3, arrivo nella 4."""
+    c = [(x0, y0), (x0 + 110, y0 + 28), (x0 + 240, y0 + 90), (x0 + 390, y0 + 125), (x0 + 560, y0 + 138), (x0 + 720, y0 + 140),
+         (1300, y0 + 150), (1500, y0 + 230), (1720, y0 + 250), (1930, y0 + 150), (2150, y0 + 90),
+         (2380, y0 + 140), (2600, y0 + 170), (2800, y0 + 40), (2770, y0 - 190), (2580, y0 - 240),
+         (2440, y0 - 90), (2560, y0 + 110), (2790, y0 + 180), (3030, y0 + 120), (3200, y0 - 40),
+         (3320, 440), (3375, 420)]
+    return catmull(c, 70)
 
 
-def ricampiona(pts, passo):
-    out, acc = [pts[0]], 0.0
-    for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
-        seg = math.hypot(x2 - x1, y2 - y1)
-        while acc + seg >= passo:
-            t = (passo - acc) / seg
-            x1, y1 = x1 + (x2 - x1) * t, y1 + (y2 - y1) * t
-            out.append((x1, y1))
-            seg = math.hypot(x2 - x1, y2 - y1)
-            acc = 0.0
-        acc += seg
-    return out
+def scia(tela, f, x0, y0):
+    base = Image.new("RGBA", (220, 240), (0, 0, 0, 0))
+    ImageDraw.Draw(base).text((10, 0), "e", font=f, fill=BIANCO)
+    base = base.crop(base.getbbox())
+    larg = f.getlength("e")
+    pts = percorso(x0 + larg / 2, y0)
+    acc, prossimo = 0.0, 0.0
+    for i in range(1, len(pts)):
+        (x1, y1), (x2, y2) = pts[i - 1], pts[i]
+        acc += math.hypot(x2 - x1, y2 - y1)
+        if acc >= prossimo:
+            ang = -math.degrees(math.atan2(y2 - y1, x2 - x1))
+            r = base.rotate(ang, resample=Image.BICUBIC, expand=True)
+            tela.alpha_composite(r, (int(x2 - r.width / 2), int(y2 - r.height / 2)))
+            prossimo = acc + larg * 0.98
 
+
+# ---------------------------------------------------------------- polaroid
 
 def polaroid(percorso_foto, w, h, didascalia, ang):
     pad, basso = 22, 92
     card = Image.new("RGBA", (w + 2 * pad, h + pad + basso), CREMA + (255,))
     im = ImageOps.exif_transpose(Image.open(RADICE / percorso_foto)).convert("RGB")
-    im = ImageOps.fit(im, (w, h), Image.LANCZOS, centering=(0.5, 0.45))
-    card.paste(im, (pad, pad))
+    card.paste(ImageOps.fit(im, (w, h), Image.LANCZOS, centering=(0.5, 0.45)), (pad, pad))
     d = ImageDraw.Draw(card)
     f = font(F_CORS, 40)
     tw = d.textlength(didascalia, font=f)
@@ -87,120 +220,39 @@ def polaroid(percorso_foto, w, h, didascalia, ang):
     return ombra.rotate(ang, resample=Image.BICUBIC, expand=True)
 
 
-def disegna_natale(tela):
-    K = 3
-    lay = Image.new("RGBA", (W * K, 500 * K), (0, 0, 0, 0))
-    d = ImageDraw.Draw(lay)
-    B, ORO = (255, 255, 255, 255), (240, 205, 130, 255)
-    # albero: tre livelli, tronco, stella, palline "bucate" nel colore dello sfondo
-    tx, base_y = 250 * K, 470 * K
-    d.rectangle((tx - 18 * K, base_y - 50 * K, tx + 18 * K, base_y), fill=B)
-    for j, (w, h, y) in enumerate([(300, 150, 400), (230, 140, 300), (160, 130, 205)]):
-        d.polygon([(tx - w / 2 * K, y * K), (tx + w / 2 * K, y * K), (tx, (y - h) * K)], fill=B)
-    for (px, py) in [(-70, 375), (60, 360), (-20, 300), (50, 255), (-45, 230), (10, 180), (95, 385), (-110, 390)]:
-        d.ellipse(((tx + px * K) - 11 * K, py * K - 11 * K, (tx + px * K) + 11 * K, py * K + 11 * K), fill=ROSSO + (255,))
-    stella(d, tx, 70 * K, 34 * K, ORO)
-    # renna (silhouette elegante, guarda a sinistra)
-    ox, oy = 560 * K, 70 * K
-    def P(x, y):
-        return (ox + x * K, oy + y * K)
-    def tratto(punti, w):
-        q = [P(*p) for p in punti]
-        d.line(q, fill=B, width=int(w * K), joint="curve")
-        for (x, y) in (q[0], q[-1]):
-            r = w * K / 2
-            d.ellipse((x - r, y - r, x + r, y + r), fill=B)
-    # corpo
-    d.ellipse((*P(140, 215), *P(345, 305)), fill=B)
-    d.ellipse((*P(130, 205), *P(215, 290)), fill=B)          # petto
-    # collo slanciato e testa
-    tratto([(175, 240), (150, 190), (125, 150)], 52)
-    d.ellipse((*P(78, 118), *P(150, 168)), fill=B)            # testa
-    tratto([(92, 150), (55, 160)], 30)                        # muso
-    d.ellipse((*P(38, 150), *P(58, 170)), fill=ORO)           # naso
-    d.ellipse((*P(100, 132), *P(111, 143)), fill=ROSSO + (255,))  # occhio
-    d.polygon([P(140, 128), P(178, 108), P(150, 145)], fill=B)    # orecchio
-    # corna ramificate
-    for pts, w in [([(112, 122), (100, 80), (82, 45), (70, 15)], 9), ([(96, 72), (66, 62)], 8), ([(86, 52), (104, 22)], 8),
-                   ([(128, 120), (140, 78), (158, 46), (180, 22)], 9), ([(141, 76), (176, 70)], 8), ([(153, 54), (148, 22)], 8)]:
-        tratto(pts, w)
-    # zampe (una sollevata, come in cammino)
-    tratto([(170, 285), (158, 340), (164, 400)], 15)
-    tratto([(200, 290), (214, 335), (196, 372), (186, 392)], 15)
-    tratto([(305, 288), (318, 340), (312, 400)], 15)
-    tratto([(330, 280), (352, 335), (348, 398)], 15)
-    # zoccoli
-    for (x, y) in [(164, 400), (186, 392), (312, 400), (348, 398)]:
-        d.ellipse((*P(x - 11, y - 4), *P(x + 11, y + 10)), fill=ORO)
-    # coda
-    d.polygon([P(338, 225), P(372, 205), P(356, 240)], fill=B)
-    lay = lay.resize((W, 500), Image.LANCZOS)
-    tela.alpha_composite(lay, (0, 800))
-
+# ---------------------------------------------------------------- composizione
 
 def main():
-    tela = Image.new("RGBA", (TOT, H), ROSSO + (255,))
-    d = ImageDraw.Draw(tela)
-    random.seed(3)
-    # stelline sparse su tutto il carosello (anche a cavallo delle slide)
-    for _ in range(46):
-        x, y = random.randint(40, TOT - 40), random.randint(60, H - 60)
-        if x > 3 * W + 100 and 280 < y < 600:
-            continue
-        if x < W and 430 < y < 790:
-            continue
-        stella(d, x, y, random.choice([6, 8, 10, 14]), (255, 225, 200, 255))
-
-    # slide 1: testo iniziale
-    f1 = font(F_CORS, 150)
-    lg = g.logo(g.STILE_BASE, True, 260)
-    tela.alpha_composite(lg, ((W - lg.width) // 2, 120))
-    d.text((90, 470), "It's", font=font(F_CORS, 96), fill=BIANCO)
-    d.text((90, 570), "Tim", font=f1, fill=BIANCO)
-    x_fine = 90 + d.textlength("Tim", font=f1)
-    y_o = 570 + 98  # centro verticale delle lettere minuscole
-
-    # scia di "e": grande e dritta nella slide 1, poi piu piccola e fluida
-    fo = font(F_CORS, 150)
-    base = Image.new("RGBA", (120, 200), (0, 0, 0, 0))
-    ImageDraw.Draw(base).text((10, 0), "e", font=fo, fill=BIANCO)
-    base = base.crop(base.getbbox())
-    dense = percorso(x_fine + base.width * 0.5, y_o)
-    def scala(x):
-        u = max(0.0, min(1.0, (x - 980) / 420))
-        return 1 - 0.42 * (u * u * (3 - 2 * u))
-    acc, prossimo = 0.0, 0.0
-    for i in range(1, len(dense)):
-        (x1, y1), (x2, y2) = dense[i - 1], dense[i]
-        acc += math.hypot(x2 - x1, y2 - y1)
-        if acc >= prossimo:
-            sc = scala(x2)
-            ang = -math.degrees(math.atan2(y2 - y1, x2 - x1))
-            e = base.resize((max(1, int(base.width * sc)), max(1, int(base.height * sc))), Image.LANCZOS)
-            r = e.rotate(ang, resample=Image.BICUBIC, expand=True)
-            tela.alpha_composite(r, (int(x2 - r.width / 2), int(y2 - r.height / 2)))
-            prossimo = acc + base.width * sc * 0.82
-
-    # albero di Natale e renna (slide 1, in basso)
-    disegna_natale(tela)
-
-    # slide 2 e 3: piccoli testi di accompagnamento
-    pass
-
-    # slide 4: arrivo
+    tela = sfondo()
     x4 = 3 * W
+    fiocchi(tela, 30, 3, [(60, 520, 1080, 900), (x4 + 120, 280, x4 + 1080, 1300), (0, 900, 560, 1350),
+                          (600, 0, 1080, 560)])
+
+    # slide 1
+    f1 = font(F_SANS, 150)
+    d = ImageDraw.Draw(tela)
+    tela.alpha_composite(g.logo(g.STILE_BASE, True, 230), (90, 120))
+    y_its = 540
+    d.text((120, y_its), "It's", font=f1, fill=BIANCO)
+    y_time = y_its + 150
+    d.text((120, y_time), "time", font=f1, fill=BIANCO)
+    x_fine = 120 + d.textlength("time", font=f1)
+    bb = f1.getbbox("e")
+    scia(tela, f1, x_fine + 4, y_time + (bb[1] + bb[3]) / 2)
+    for cx, yc, r, tipo in [(700, 230, 44, "oro"), (820, 330, 36, "rossa"), (1010, 220, 50, "oro"), (915, 440, 52, "perla")]:
+        pallina(tela, cx, yc, r, tipo)
+    alberello(tela, 230, 960, 330, 330)
+
+    # slide 4
     for j, riga in enumerate(["to find you", "the perfect gift"]):
-        f = font(F_CORS, 96)
-        d.text((x4 + 165 + j * 40, 330 + j * 110), riga, font=f, fill=BIANCO)
+        d.text((x4 + 160 + j * 30, 340 + j * 96), riga, font=font(F_SANS, 78), fill=BIANCO)
     foto = [("foto/ai/regalo-maglione-nero-paillettes.png", "un maglione", 6, (x4 + 40, 610)),
             ("foto/ai/regalo-borsa-beige.png", "una borsa", -4, (x4 + 370, 570)),
             ("foto/ai/regalo-collane-cristalli.png", "un gioiello", 5, (x4 + 700, 625))]
     for p, nome, ang, (px, py) in foto:
-        c = polaroid(p, 250, 300, nome, ang)
-        tela.alpha_composite(c, (px - 30, py))
+        tela.alpha_composite(polaroid(p, 250, 300, nome, ang), (px - 30, py))
     fv = font(F_SANS, 30)
-    t = "PAKIMA · VIA CAVOUR 7 · VIMERCATE"
-    sp = 5
+    t, sp = "PAKIMA · VIA CAVOUR 7 · VIMERCATE", 5
     tw = sum(fv.getlength(ch) + sp for ch in t) - sp
     x = x4 + (W - tw) / 2
     for ch in t:
