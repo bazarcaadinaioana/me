@@ -21,6 +21,13 @@ Nota: lo sfondo comune è il pavimento in cotto del negozio. Tutte le foto sono 
 | prodotti/maglia-cipria-borchiette-oro.jpg | Maglia cipria con borchiette oro | — |
 | prodotti/maglia-grigia-occhielli.jpg | Maglia grigia con occhielli metallici | — |
 | prodotti/dolcevita-grigio-melange.jpg | Dolcevita grigio melange oversize | — |
+| prodotti/surkana-cappotto-quadri-petrolio-cammello.jpg | Cappotto doppiopetto a quadri petrolio/cammello/panna | Surkana |
+| prodotti/allegra-maglia-verde-salvia-orlo-pelo.jpg | Maglia verde salvia con orlo in pelo | Allegra |
+| prodotti/maglia-velata-fantasia-verde-moro.jpg | Maglia velata fantasia verde/moro/panna | — |
+| prodotti/maglione-mouline-multicolore.jpg | Maglione mouliné multicolore (verde, ruggine, panna) | — |
+| prodotti/maglione-melange-verde-bianco.jpg | Maglione mélange verde scuro e bianco | — |
+| prodotti/pantalone-velluto-coste-verde-oliva-79.jpg | Pantalone velluto a coste verde oliva, gamba dritta | € 79 |
+| prodotti/nhebyna-blusa-paisley-2.jpg | Blusa paisley (seconda foto, con cartellino) | Nhebyna |
 | prodotti/pantalone-velluto-coste-nero.jpg | Pantalone 5 tasche velluto a coste nero | — |
 | prodotti/pantalone-5-tasche-moro-cintura-quadri.jpg | Pantalone 5 tasche moro con cintura a quadri | — |
 
@@ -35,6 +42,7 @@ Nota: lo sfondo comune è il pavimento in cotto del negozio. Tutte le foto sono 
 | File | Cosa | Prezzo noto |
 |---|---|---|
 | accessori/borsa-nera-camoscio-pelle-chiusura-oro.jpg | Borsa nera camoscio e pelle martellata, chiusura girevole oro | — |
+| accessori/aladdin-collana-cerchi-oro-cristalli-rossi-bracciale.jpg | Collana a cerchi oro con cristalli rossi + bracciale rigido oro traforato, accanto al poster Nhebyna | Aladdin |
 | accessori/borsa-camoscio-cuoio-borchie.jpg | Borsa camoscio cuoio con borchie oro, manico arricciato | — |
 | accessori/borsa-camoscio-beige-chiusura-oro.jpg | Borsa camoscio beige, chiusura girevole oro, pompon | — |
 | accessori/bauletto-camoscio-tortora-catena-meea.jpg | Bauletto camoscio tortora + catena gioiello bordeaux Meea | catena € 29 |
@@ -43,3 +51,8 @@ Nota: lo sfondo comune è il pavimento in cotto del negozio. Tutte le foto sono 
 | accessori/collane-cristalli-champagne-blu-bronzo.jpg | Collana a maglie di cristalli champagne + collana lunga blu/bronzo | — |
 | accessori/berretto-panna-pompon.jpg | Berretto a coste panna con pompon e lurex | — |
 | accessori/portachiavi-*.jpg | Portachiavi: leopardato con cuore di cristallo, cuore di strass oro, espositore | idee regalo |
+
+## Abbinamenti pronti (idee per i contenuti)
+- **Total green**: maglia salvia orlo pelo + pantalone velluto oliva + maglione mélange o mouliné.
+- **Tre cappotti, tre stili**: lungo nero Nhebyna · pelo moro Allegra · quadri Surkana.
+- **Look feste**: maglia nera paillettes o bordeaux lurex + collana Aladdin + borsa nera.

@@ -17,7 +17,9 @@
 | Surkana | azienda spagnola |
 | Anis | maglieria |
 | Flo&Poi | linea curvy, fino alla taglia 52 |
-| Allegra | alla moda |
+| Allegra | alla moda (Milano) |
+| Deadiva | giacche, Made in Italy |
+| Aladdin | gioielli artigianali (collane statement) |
 *(La titolare potrà aggiungerne altri: aggiorna qui.)*
 
 ## Prezzi indicativi
