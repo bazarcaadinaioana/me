@@ -109,15 +109,15 @@ def main():
     f1 = font(F_CORS, 150)
     lg = g.logo(g.STILE_BASE, True, 260)
     tela.alpha_composite(lg, ((W - lg.width) // 2, 120))
-    d.text((90, 470), "È il", font=font(F_CORS, 96), fill=BIANCO)
-    d.text((90, 570), "moment", font=f1, fill=BIANCO)
-    x_fine = 90 + d.textlength("moment", font=f1)
+    d.text((90, 470), "It's", font=font(F_CORS, 96), fill=BIANCO)
+    d.text((90, 570), "Tim", font=f1, fill=BIANCO)
+    x_fine = 90 + d.textlength("Tim", font=f1)
     y_o = 570 + 98  # centro verticale delle lettere minuscole
 
     # scia di "o" che continua su tutte le slide
     fo = font(F_CORS, 150)
     o = Image.new("RGBA", (120, 200), (0, 0, 0, 0))
-    ImageDraw.Draw(o).text((10, 0), "o", font=fo, fill=BIANCO)
+    ImageDraw.Draw(o).text((10, 0), "e", font=fo, fill=BIANCO)
     o = o.crop(o.getbbox())
     pts = ricampiona(percorso(x_fine + o.width * 0.55, y_o), o.width * 0.86)
     for i, (x, y) in enumerate(pts):
@@ -131,17 +131,17 @@ def main():
 
     # slide 4: arrivo
     x4 = 3 * W
-    for j, riga in enumerate(["per trovare", "il regalo perfetto"]):
+    for j, riga in enumerate(["to find you", "the perfect gift"]):
         f = font(F_CORS, 96)
         d.text((x4 + 165 + j * 40, 330 + j * 110), riga, font=f, fill=BIANCO)
-    foto = [("foto/prodotti/maglia-nera-paillettes-lurex.jpg", "un maglione", 6, (x4 + 40, 610)),
-            ("foto/accessori/borsa-camoscio-beige-chiusura-oro.jpg", "una borsa", -4, (x4 + 370, 570)),
-            ("foto/accessori/aladdin-collana-cerchi-oro-cristalli-rossi-bracciale.jpg", "un gioiello", 5, (x4 + 700, 625))]
+    foto = [("foto/ai/regalo-maglione-nero-paillettes.png", "a sweater", 6, (x4 + 40, 610)),
+            ("foto/ai/regalo-borsa-beige.png", "a bag", -4, (x4 + 370, 570)),
+            ("foto/ai/regalo-collane-cristalli.png", "a jewel", 5, (x4 + 700, 625))]
     for p, nome, ang, (px, py) in foto:
         c = polaroid(p, 250, 300, nome, ang)
         tela.alpha_composite(c, (px - 30, py))
     fv = font(F_SANS, 30)
-    t = "DA PAKIMA · VIA CAVOUR 7 · VIMERCATE"
+    t = "PAKIMA · VIA CAVOUR 7 · VIMERCATE"
     sp = 5
     tw = sum(fv.getlength(ch) + sp for ch in t) - sp
     x = x4 + (W - tw) / 2
