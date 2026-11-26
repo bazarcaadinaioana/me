@@ -234,16 +234,16 @@ def main():
     # slide 1
     f1 = font(F_CORS, 160)
     d = ImageDraw.Draw(tela)
-    tela.alpha_composite(g.logo(g.STILE_BASE, True, 230), (90, 120))
-    y_its = 540
+    tela.alpha_composite(g.logo(g.STILE_BASE, True, 340), (70, 90))
+    y_its = 420
     d.text((110, y_its), "It's", font=font(F_CORS, 120), fill=BIANCO)
     y_time = y_its + 130
     d.text((110, y_time), "time", font=f1, fill=BIANCO)
     x_fine = 110 + d.textlength("time", font=f1)
     bb = f1.getbbox("e")
     scia(tela, f1, x_fine + 4, y_time + (bb[1] + bb[3]) / 2)
-    decoro(tela, "foto/ai/natale-palline-trasp.png", 560, W - 560 + 20, -40)
-    decoro(tela, "foto/ai/natale-albero-dorato-trasp.png", 420, -30, H - 420 * 1312 / 1199 + 30)
+    decoro(tela, "foto/ai/natale-palline-trasp.png", 400, W - 400 + 10, -30)
+    decoro(tela, "foto/ai/natale-albero-dorato-trasp.png", 580, -80, H - 580 * 1312 / 1199 + 40)
 
     # slide 4
     for j, riga in enumerate(["to find you", "the perfect gift"]):
